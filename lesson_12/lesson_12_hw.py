@@ -14,7 +14,6 @@ class DataStorage:
         while True:
             try:
                 file = open(self.__path_file, 'r')
-                print('открыл файл на чтение')
                 DataStorage.status = 'connected'
                 DataStorage.content = file.read()
                 return file
@@ -38,7 +37,6 @@ class DataStorageWrite(DataStorage):
         while True:
             try:
                 file = open(self.__path_file, 'r+')
-                print('открыл файл на чтение и дозапись')
                 DataStorageWrite.status = 'connected'
                 DataStorageWrite.content = file.read()
                 self.file = file
