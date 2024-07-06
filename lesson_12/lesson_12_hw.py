@@ -8,7 +8,6 @@ class DataStorage:
     def _create_storage(self):
         file = open(self.__path_file, 'w')
         file.close()
-        print('создал новый файл')
         return file
 
     def connect(self):
@@ -18,8 +17,6 @@ class DataStorage:
                 print('открыл файл на чтение')
                 DataStorage.status = 'connected'
                 DataStorage.content = file.read()
-                print(file)
-                print(DataStorage.content)
                 return file
             except FileNotFoundError:
                 DataStorage._create_storage(self)
@@ -56,5 +53,4 @@ class DataStorageWrite(DataStorage):
     def disconnect(self):
         print(DataStorageWrite.content)
         self.file.close()
-        print(self.file)
         print('закрыл файл')
