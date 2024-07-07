@@ -14,11 +14,11 @@ class DataStorage:
         while True:
             try:
                 file = open(self.__path_file, 'r')
-                DataStorage.status = 'connected'
-                DataStorage.content = file.read()
+                self.status = 'connected'
+                self.content = file.read()
                 return file
             except FileNotFoundError:
-                DataStorage._create_storage(self)
+                self._create_storage(self)
 
     def disconnect(self, file):
         file.close()
@@ -37,18 +37,18 @@ class DataStorageWrite(DataStorage):
         while True:
             try:
                 file = open(self.__path_file, 'r+')
-                DataStorageWrite.status = 'connected'
-                DataStorageWrite.content = file.read()
+                self.status = 'connected'
+                self.content = file.read()
                 self.file = file
                 return file
             except FileNotFoundError:
-                DataStorageWrite._create_storage(self)
+                self._create_storage(self)
 
     def append(self, new_content: str):
         self.file.write(new_content)
-        DataStorageWrite.content += new_content
+        self.content += new_content
 
     def disconnect(self):
-        print(DataStorageWrite.content)
+        print(self.content)
         self.file.close()
         print('закрыл файл')
