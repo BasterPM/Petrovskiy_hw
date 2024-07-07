@@ -10,13 +10,13 @@ class Swimmer:
     def __init__(self, speed: int):
         self.speed = speed
 
-    def to_swim(self, pool, distance: int):
+    def to_swim(self, pool: SwimmingPool, distance: int):
         pause = 10 / self.speed
         a = 0
         b = 0
         c = True
         while c:
-            if not a == distance:
+            if not a == distance//10:
                 while a < distance//10 and b < len(pool.length):
                     time.sleep(pause)
                     print(pool.length[:b] + '*' + pool.length[b:])
@@ -31,6 +31,6 @@ class Swimmer:
                 c = False
 
 
-# pool = SwimmingPool(100)
-# swimmer = Swimmer(15)
-# swimmer.to_swim(pool, 250)
+pool = SwimmingPool(100)
+swimmer = Swimmer(15)
+swimmer.to_swim(pool, 250)

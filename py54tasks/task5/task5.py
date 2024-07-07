@@ -1,5 +1,6 @@
 class Child:
-    next_child = None
+    def __init__(self):
+        self.next_child = None
 
 
 round_dance = []
