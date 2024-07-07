@@ -18,7 +18,7 @@ class DataStorage:
                 self.content = file.read()
                 return file
             except FileNotFoundError:
-                self._create_storage(self)
+                self._create_storage()
 
     def disconnect(self, file):
         file.close()
@@ -42,7 +42,7 @@ class DataStorageWrite(DataStorage):
                 self.file = file
                 return file
             except FileNotFoundError:
-                self._create_storage(self)
+                self._create_storage()
 
     def append(self, new_content: str):
         self.file.write(new_content)
